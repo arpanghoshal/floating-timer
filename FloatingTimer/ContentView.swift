@@ -71,7 +71,7 @@ struct ContentView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.clear)
+        .background(Color.black.opacity(0.3))
         .popover(isPresented: $showingControls, arrowEdge: .top) {
             ControlsView(timerViewModel: timerViewModel)
         }
@@ -139,6 +139,3 @@ struct ControlsView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}

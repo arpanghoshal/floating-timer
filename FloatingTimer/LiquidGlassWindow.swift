@@ -18,13 +18,14 @@ class LiquidGlassWindow: NSWindow {
     }
     
     private func setupWindow() {
-        backgroundColor = NSColor.clear
+        backgroundColor = NSColor.windowBackgroundColor.withAlphaComponent(0.1)
         isOpaque = false
         hasShadow = true
         level = .floating
         collectionBehavior = [.canJoinAllSpaces, .stationary]
         titlebarAppearsTransparent = true
         isMovableByWindowBackground = true
+        alphaValue = 0.95
         
         standardWindowButton(.closeButton)?.isHidden = true
         standardWindowButton(.miniaturizeButton)?.isHidden = true
@@ -37,7 +38,7 @@ class LiquidGlassWindow: NSWindow {
         
         let visualEffectView = NSVisualEffectView()
         visualEffectView.material = .hudWindow
-        visualEffectView.blendingMode = .behindWindow
+        visualEffectView.blendingMode = .withinWindow
         visualEffectView.state = .active
         visualEffectView.wantsLayer = true
         visualEffectView.layer?.cornerRadius = 16
